@@ -5,7 +5,6 @@ import { log } from "../utils";
 export default async function connect() {
 	const dbUri = config.get<string>("dbUri");
 	try {
-		console.log(dbUri);
 		await mongoose.connect(dbUri);
 		log.info(`Connected to DB`);
 	} catch (error) {
