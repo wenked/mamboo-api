@@ -14,4 +14,23 @@ export const createTaskSchema = object({
 	}),
 });
 
+export const updateTaskSchema = object({
+	body: object({
+		description: string().optional(),
+		name: string().optional(),
+		status: string().optional(),
+	}),
+	params: object({
+		_id: string({ required_error: "Id is required" }),
+	}),
+});
+
+export const deleteTaskSchema = object({
+	params: object({
+		_id: string({ required_error: "Id is required" }),
+	}),
+});
+
+export type DeleteTaskInput = TypeOf<typeof deleteTaskSchema>;
 export type CreateTaskInput = TypeOf<typeof createTaskSchema>;
+export type UpdateTaskInput = TypeOf<typeof updateTaskSchema>;
