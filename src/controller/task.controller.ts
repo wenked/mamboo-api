@@ -1,5 +1,10 @@
 import { Request, Response } from "express";
-import { CreateTaskInput, UpdateTaskInput } from "../schema/task.schema";
+import {
+	CreateTaskInput,
+	DeleteTaskInput,
+	ListAllTasksInput,
+	UpdateTaskInput,
+} from "../schema/task.schema";
 import {
 	createTaskService,
 	deleteTaskService,
@@ -8,9 +13,14 @@ import {
 } from "../services/task.service";
 import { log } from "../utils";
 
-export async function listAllTasksHandler(req: Request, res: Response) {
+export async function listAllTasksHandler(
+	req: Request<{}, ListAllTasksInput["query"], {}>,
+	res: Response
+) {
 	try {
-		const tasks = await listAllTasksService();
+		const { status } = req.query;
+
+		const tasks = await listAllTasksService(status ? { status } : {});
 
 		res.status(200).json(tasks);
 	} catch (error: any) {
@@ -53,7 +63,7 @@ export async function updateTaskHandler(
 }
 
 export async function deleteTaskHandler(
-	req: Request<UpdateTaskInput["params"], {}, {}>,
+	req: Request<DeleteTaskInput["params"], {}, {}>,
 	res: Response
 ) {
 	try {

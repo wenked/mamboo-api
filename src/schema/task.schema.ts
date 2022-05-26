@@ -31,6 +31,13 @@ export const deleteTaskSchema = object({
 	}),
 });
 
+export const listAllTasksSchema = object({
+	query: object({
+		status: string().optional(),
+	}),
+});
+
+export type ListAllTasksInput = TypeOf<typeof listAllTasksSchema>;
 export type DeleteTaskInput = TypeOf<typeof deleteTaskSchema>;
 export type CreateTaskInput = TypeOf<typeof createTaskSchema>;
 export type UpdateTaskInput = TypeOf<typeof updateTaskSchema>;

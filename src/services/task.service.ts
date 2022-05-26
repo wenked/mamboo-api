@@ -2,9 +2,9 @@ import { DocumentDefinition, FilterQuery, QueryOptions, UpdateQuery } from "mong
 import TaskModel, { TaskDocument } from "../models/task.model";
 import { log } from "../utils";
 
-export async function listAllTasksService() {
+export async function listAllTasksService(query: FilterQuery<TaskDocument>) {
 	try {
-		const tasks = await TaskModel.find();
+		const tasks = await TaskModel.find(query);
 
 		return tasks;
 	} catch (error: any) {
