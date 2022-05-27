@@ -1,6 +1,8 @@
 import dotenv from "dotenv";
+
 dotenv.config();
+
 export default {
-	dbUri: `mongodb://${process.env.DB_HOSTNAME}:27017/${process.env.DB_DATABASE}`,
+	dbUri: process.env.DB_URI,
 	port: 1337,
 };
