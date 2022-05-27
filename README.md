@@ -6,15 +6,19 @@ Api para criação de tasks em um kaban board
 
 No diretório do projeto você pode rodar:
 
-### `yarn dev`
+### `yarn` ou `npm install`
+
+Comando para instalar todas as depêndencias
+
+### `yarn dev` ou `npm dev`
 
 Executa a api em modo de desnvolvimento , na url http://localhost:1337 por padrão , a porta você pode escolher alterando no .env ou vai rodar na porta padrão 3000
 
-### `yarn build`
+### `yarn build` ou `npm build`
 
 Esse comando builda o app.
 
-## `yarn start`
+## `yarn start` ou `npm start`
 
 Executa o app buildado
 
