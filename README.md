@@ -22,6 +22,18 @@ Executa o app buildado
 
 `DB_URI` : env com a uri do mongodb
 `PORT`: porta que você deseja rodar a api
+`DB_USERNAME` : env do username para o docker
+`DB_PASSWORD` : env com o password para o docker
+`DB_DATABASE` : env com o db inicial para o docker
+
+## Docker
+
+Se desejar pode rodar a mongodb com o docker é só executar os comandos abaixo:
+
+    docker-compose up -d
+    docker-compose start
+
+a db irá rodar na uri padrão: `mongodb://localhost:27017/${DB_DATABASE}`
 
 ## Endpoints da api
 
