@@ -4,5 +4,5 @@ dotenv.config();
 
 export default {
 	dbUri: process.env.DB_URI,
-	port: 1337,
+	port: Number(process.env.PORT) || 3000,
 };
